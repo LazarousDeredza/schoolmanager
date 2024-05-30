@@ -1,0 +1,212 @@
+[
+    {
+      "id": 1,
+      "name": "Hotel A",
+      "address": "123 Main Street",
+      "minimalPrice": 100,
+      "priceForIt": "Starting from $100",
+      "rating": 4,
+      "ratingName": "Excellent",
+      "imageUrls": [
+        "https://example.com/hotelA/image1.jpg",
+        "https://example.com/hotelA/image2.jpg"
+      ],
+      "about_the_hotel": {
+        "description": "Hotel A is a luxurious hotel with stunning views.",
+        "peculiarities": [
+          "Swimming pool",
+          "Gym",
+          "Spa"
+        ]
+      }
+    },
+    {
+      "id": 2,
+      "name": "Hotel B",
+      "address": "456 Elm Street",
+      "minimalPrice": 150,
+      "priceForIt": "Starting from $150",
+      "rating": 3,
+      "ratingName": "Good",
+      "imageUrls": [
+        "https://example.com/hotelB/image1.jpg",
+        "https://example.com/hotelB/image2.jpg"
+      ],
+      "about_the_hotel": {
+        "description": "Hotel B offers comfortable rooms and friendly service.",
+        "peculiarities": [
+          "Restaurant",
+          "Bar",
+          "Conference rooms"
+        ]
+      }
+    },
+    {
+      "id": 3,
+      "name": "Hotel C",
+      "address": "789 Oak Avenue",
+      "minimalPrice": 120,
+      "priceForIt": "Starting from $120",
+      "rating": 4,
+      "ratingName": "Excellent",
+      "imageUrls": [
+        "https://example.com/hotelC/image1.jpg",
+        "https://example.com/hotelC/image2.jpg"
+      ],
+      "about_the_hotel": {
+        "description": "Hotel C is a modern hotel with a great location.",
+        "peculiarities": [
+          "Rooftop bar",
+          "Fitness center",
+          "Free Wi-Fi"
+        ]
+      }
+    },
+    {
+      "id": 4,
+      "name": "Hotel D",
+      "address": "321 Pine Road",
+      "minimalPrice": 180,
+      "priceForIt": "Starting from $180",
+      "rating": 5,
+      "ratingName": "Exceptional",
+      "imageUrls": [
+        "https://example.com/hotelD/image1.jpg",
+        "https://example.com/hotelD/image2.jpg"
+      ],
+      "about_the_hotel": {
+        "description": "Hotel D is a luxurious resort with a private beach.",
+        "peculiarities": [
+          "Outdoor pool",
+          "Spa and wellness center",
+          "Water sports activities"
+        ]
+      }
+    },
+    {
+      "id": 5,
+      "name": "Hotel E",
+      "address": "654 Maple Lane",
+      "minimalPrice": 90,
+      "priceForIt": "Starting from $90",
+      "rating": 3,
+      "ratingName": "Good",
+      "imageUrls": [
+        "https://example.com/hotelE/image1.jpg",
+        "https://example.com/hotelE/image2.jpg"
+      ],
+      "about_the_hotel": {
+        "description": "Hotel E is a budget-friendly hotel with basic amenities.",
+        "peculiarities": [
+          "Free breakfast",
+          "Parking available",
+          "Laundry service"
+        ]
+      }
+    },
+    {
+      "id": 6,
+      "name": "Hotel F",
+      "address": "987 Cedar Drive",
+      "minimalPrice": 140,
+      "priceForIt": "Starting from $140",
+      "rating": 4,
+      "ratingName": "Excellent",
+      "imageUrls": [
+        "https://example.com/hotelF/image1.jpg",
+        "https://example.com/hotelF/image2.jpg"
+      ],
+      "about_the_hotel": {
+        "description": "Hotel F is a modern and stylish hotel with great views.",
+        "peculiarities": [
+          "Rooftop terrace",
+          "Business center",
+          "Pet-friendly"
+        ]
+      }
+    },
+    {
+      "id": 7,
+      "name": "Hotel G",
+      "address": "456 Birch Avenue",
+      "minimalPrice": 160,
+      "priceForIt": "Starting from $160",
+      "rating": 4,
+      "ratingName": "Excellent",
+      "imageUrls": [
+        "https://example.com/hotelG/image1.jpg",
+        "https://example.com/hotelG/image2.jpg"
+      ],
+      "about_the_hotel": {
+        "description": "Hotel G is a historic hotel with a charming ambiance.",
+        "peculiarities": [
+          "On-site restaurant",
+          "Concierge service",
+          "Complimentary breakfast"
+        ]
+      }
+    },
+    {
+      "id": 8,
+      "name": "Hotel H",
+      "address": "789 Willow Street",
+      "minimalPrice": 130,
+      "priceForIt": "Starting from $130",
+      "rating": 3,
+      "ratingName": "Good",
+      "imageUrls": [
+        "https://example.com/hotelH/image1.jpg",
+        "https://example.com/hotelH/image2.jpg"
+      ],
+      "about_the_hotel": {
+        "description": "Hotel H is a comfortable hotel with basic amenities.",
+        "peculiarities": [
+          "Free Wi-Fi",
+          "Parking available",
+          "Family-friendly"
+        ]
+      }
+    },
+    {
+      "id": 9,
+      "name": "Hotel I",
+      "address": "321 Oak Street",
+      "minimalPrice": 170,
+      "priceForIt": "Starting from $170",
+      "rating": 4,
+      "ratingName": "Excellent",
+      "imageUrls": [
+        "https://example.com/hotelI/image1.jpg",
+        "https://example.com/hotelI/image2.jpg"
+      ],
+      "about_the_hotel": {
+        "description": "Hotel I is a modern and eco-friendly hotel.",
+        "peculiarities": [
+          "Sustainability initiatives",
+          "Fitness center",
+          "Organic restaurant"
+        ]
+      }
+    },
+    {
+      "id": 10,
+      "name": "Hotel J",
+      "address": "159 Maple Drive",
+      "minimalPrice": 110,
+      "priceForIt": "Starting from $110",
+      "rating": 3,
+      "ratingName": "Good",
+      "imageUrls": [
+        "https://example.com/hotelJ/image1.jpg",
+        "https://example.com/hotelJ/image2.jpg"
+      ],
+      "about_the_hotel": {
+        "description": "Hotel J is a budget-friendly hotel with a convenient location.",
+        "peculiarities": [
+          "Complimentary breakfast",
+          "Shuttle service",
+          "Accessible rooms"
+        ]
+      }
+    }
+  ]
