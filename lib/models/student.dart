@@ -1,26 +1,29 @@
 class Student {
-  final int id;
+  final String id;
   final String name;
-  final int age;
-  final String grade;
+  final String dob;
+  final int grade, feesPaid;
+  final String className;
   final String email;
   final String phoneNumber;
   final String address;
   final String parentName;
-  final String parentEmail;
   final String parentPhoneNumber;
+  final String date_time;
 
   Student({
-    required this.id,
+   required this.id,
     required this.name,
-    required this.age,
+    required this.dob,
     required this.grade,
+    required this.feesPaid,
+    required this.className,
     required this.email,
     required this.phoneNumber,
     required this.address,
     required this.parentName,
-    required this.parentEmail,
     required this.parentPhoneNumber,
+    required this.date_time,
   });
 
   // Convert a Map to a Student object
@@ -28,13 +31,15 @@ class Student {
     return Student(
       id: map['id'],
       name: map['name'],
-      age: map['age'],
+      dob: map['dob'],
+      feesPaid: map['feesPaid'],
       grade: map['grade'],
+      className: map['class'],
       email: map['email'],
       phoneNumber: map['phoneNumber'],
       address: map['address'],
       parentName: map['parentName'],
-      parentEmail: map['parentEmail'],
+      date_time: map['date_time'],
       parentPhoneNumber: map['parentPhoneNumber'],
     );
   }
@@ -44,13 +49,15 @@ class Student {
     return {
       'id': id,
       'name': name,
-      'age': age,
+      'dob': dob,
       'grade': grade,
       'email': email,
+      'class': className,
+      'feesPaid': feesPaid,
       'phoneNumber': phoneNumber,
       'address': address,
       'parentName': parentName,
-      'parentEmail': parentEmail,
+      'date_time':date_time,
       'parentPhoneNumber': parentPhoneNumber,
     };
   }

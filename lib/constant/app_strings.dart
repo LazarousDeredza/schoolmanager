@@ -7,7 +7,7 @@ var firebaseAuth = FirebaseAuth.instance;
 var firestore = FirebaseFirestore.instance;
 var firebaseStorage = FirebaseStorage.instance;
 
-String appName = "Travel Agency";
+String appName = "School Management";
 
 //FAQ english strings
 const faqTitle1 = "How I can reached you";
