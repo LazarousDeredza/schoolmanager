@@ -4,10 +4,13 @@ import 'dart:io';
 import 'dart:math';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
+import 'package:get/get_connect/http/src/utils/utils.dart';
 import 'package:intl/intl.dart';
 import 'package:schoolmanager/constant/constant.dart';
 import 'package:schoolmanager/school_module/views/widgets/custom_text_field.dart';
@@ -73,31 +76,191 @@ class _PackageAddPageState extends State<PackageAddPage> {
 
   int selectedGrade = grade.first;
 
-  uploadToDB() {
-    CollectionReference data = firestore.collection(allStudents);
-    data.doc().set(
-      {
-        'id': generateRandomString(),
-        "name": _nameController.text,
-        'dob': _dobController.text,
-        "feesPaid": int.parse(_feesPaidController.text),
-        "grade": selectedGrade,
-        "class": selectedClass,
-        "email": _emailController.text.trim(),
-        "phoneNumber": _phoneNumberController.text,
-        "address": _addressController.text,
-        "parentName": _parentNameController.text,
-        "parentPhoneNumber": _parentPhoneNumberController.text,
-        'date_time': _formatDateTime(DateTime.now().toString()),
-      },
-    ).whenComplete(() {
+  uploadToDB() async {
+
+    //
+    
+    
+    // CollectionReference data = firestore.collection(allStudents);
+    // data.doc().set(
+    //   {
+    //     'id': generateRandomString(),
+    //     "name": _nameController.text,
+    //     'dob': _dobController.text,
+    //     "feesPaid": int.parse(_feesPaidController.text),
+    //     "grade": selectedGrade,
+    //     "class": selectedClass,
+    //     "email": _emailController.text.trim(),
+    //     "phoneNumber": _phoneNumberController.text,
+    //     "address": _addressController.text,
+    //     "parentName": _parentNameController.text,
+    //     "parentPhoneNumber": _parentPhoneNumberController.text,
+    //     'date_time': _formatDateTime(DateTime.now().toString()),
+    //   },
+    // ).whenComplete(() {
+    //   Get.snackbar("Successful", "Student Added successfully.");
+    //   Clear();
+    // });
+    // Get.to(
+    //   () => SchoolManagementHomeScreen(),
+    // );
+
+
+CollectionReference data = firestore.collection(allStudents);
+
+// Retrieve the class lengths
+Map<String, int> classLengths = await getClassLengths();
+
+// Determine the selected class based on the selected grade and class lengths
+int? currentClassLength = 0;
+String selectedclass=selectedClass;
+switch (selectedGrade) {
+  case 1:
+    if (classLengths['1A']! < 30) {
+      selectedclass = '1A';
+      currentClassLength = classLengths['1A'];
+    } else if (classLengths['1B']! < 30) {
+      selectedclass = '1B';
+      currentClassLength = classLengths['1B'];
+    } else {
+      selectedclass = '1C';
+      currentClassLength = classLengths['1C'];
+    }
+    break;
+  case 2:
+    if (classLengths['2A']! < 30) {
+      selectedclass = '2A';
+      currentClassLength = classLengths['2A'];
+    } else if (classLengths['2B']! < 30) {
+      selectedclass = '2B';
+      currentClassLength = classLengths['2B'];
+    } else {
+      selectedclass = '2C';
+      currentClassLength = classLengths['2C'];
+    }
+    break;
+  case 3:
+    if (classLengths['3A']! < 30) {
+      selectedclass = '3A';
+      currentClassLength = classLengths['3A'];
+    } else if (classLengths['3B']! < 30) {
+      selectedclass = '3B';
+      currentClassLength = classLengths['3B'];
+    } else {
+      selectedclass = '3C';
+      currentClassLength = classLengths['3C'];
+    }
+    break;
+  case 4:
+    if (classLengths['4A']! < 30) {
+      selectedclass = '4A';
+      currentClassLength = classLengths['4A'];
+    } else if (classLengths['4B']! < 30) {
+      selectedclass = '4B';
+      currentClassLength = classLengths['4B'];
+    } else {
+      selectedclass = '4C';
+      currentClassLength = classLengths['4C'];
+    }
+    break;
+  case 5:
+    if (classLengths['5A']! < 30) {
+      selectedclass = '5A';
+      currentClassLength = classLengths['5A'];
+    } else if (classLengths['5B']! < 30) {
+      selectedclass = '5B';
+      currentClassLength = classLengths['5B'];
+    } else {
+      selectedclass = '5C';
+      currentClassLength = classLengths['5C'];
+    }
+    break;
+  case 6:
+    if (classLengths['6A']! < 30) {
+      selectedclass = '6A';
+      currentClassLength = classLengths['6A'];
+    } else if (classLengths['6B']! < 30) {
+      selectedclass = '6B';
+      currentClassLength = classLengths['6B'];
+    } else {
+      selectedclass = '6C';
+      currentClassLength = classLengths['6C'];
+    }
+    break;
+  case 7:
+    if (classLengths['7A']! < 30) {
+      selectedclass = '7A';
+      currentClassLength = classLengths['7A'];
+    } else if (classLengths['7B']! < 30) {
+      selectedclass = '7B';
+      currentClassLength = classLengths['7B'];
+    } else {
+      selectedclass = '7C';
+      currentClassLength = classLengths['7C'];
+    }
+    break;
+  default:
+    // Handle cases where the selected grade is not found
+    break;
+}
+
+// Save the student data to Firestore
+data.doc().set(
+  {
+    'id': generateRandomString(),
+    "name": _nameController.text,
+    'dob': _dobController.text,
+    "feesPaid": int.parse(_feesPaidController.text),
+    "grade": selectedGrade,
+    "class": selectedclass,
+    "email": _emailController.text.trim(),
+    "phoneNumber": _phoneNumberController.text,
+    "address": _addressController.text,
+    "parentName": _parentNameController.text,
+    "parentPhoneNumber": _parentPhoneNumberController.text,
+    'date_time': _formatDateTime(DateTime.now().toString()),
+  },
+   ).whenComplete(() {
       Get.snackbar("Successful", "Student Added successfully.");
       Clear();
     });
     Get.to(
       () => SchoolManagementHomeScreen(),
     );
+  
+  
+  
   }
+
+
+Future<Map<String, int>> getClassLengths() async {
+  Map<String, int> classLengths = {};
+
+  // Retrieve the lengths for each class
+  classLengths['1A'] = (await firestore.collection(allStudents).where('class', isEqualTo: '1A').get()).size;
+  classLengths['1B'] = (await firestore.collection(allStudents).where('class', isEqualTo: '1B').get()).size;
+  classLengths['1C'] = (await firestore.collection(allStudents).where('class', isEqualTo: '1C').get()).size;
+  classLengths['2A'] = (await firestore.collection(allStudents).where('class', isEqualTo: '2A').get()).size;
+  classLengths['2B'] = (await firestore.collection(allStudents).where('class', isEqualTo: '2B').get()).size;
+  classLengths['2C'] = (await firestore.collection(allStudents).where('class', isEqualTo: '2C').get()).size;
+  classLengths['3A'] = (await firestore.collection(allStudents).where('class', isEqualTo: '3A').get()).size;
+  classLengths['3B'] = (await firestore.collection(allStudents).where('class', isEqualTo: '3B').get()).size;
+  classLengths['3C'] = (await firestore.collection(allStudents).where('class', isEqualTo: '3C').get()).size;
+  classLengths['4A'] = (await firestore.collection(allStudents).where('class', isEqualTo: '4A').get()).size;
+  classLengths['4B'] = (await firestore.collection(allStudents).where('class', isEqualTo: '4B').get()).size;
+  classLengths['4C'] = (await firestore.collection(allStudents).where('class', isEqualTo: '4C').get()).size;
+  classLengths['5A'] = (await firestore.collection(allStudents).where('class', isEqualTo: '5A').get()).size;
+  classLengths['5B'] = (await firestore.collection(allStudents).where('class', isEqualTo: '5B').get()).size;
+  classLengths['5C'] = (await firestore.collection(allStudents).where('class', isEqualTo: '5C').get()).size;
+  classLengths['6A'] = (await firestore.collection(allStudents).where('class', isEqualTo: '6A').get()).size;
+  classLengths['6B'] = (await firestore.collection(allStudents).where('class', isEqualTo: '6B').get()).size;
+  classLengths['6C'] = (await firestore.collection(allStudents).where('class', isEqualTo: '6C').get()).size;
+  classLengths['7A'] = (await firestore.collection(allStudents).where('class', isEqualTo: '7A').get()).size;
+  classLengths['7B'] = (await firestore.collection(allStudents).where('class', isEqualTo: '7B').get()).size;
+  classLengths['7C'] = (await firestore.collection(allStudents).where('class', isEqualTo: '7C').get()).size;
+
+  return classLengths;
+}
 
   @override
   Widget build(BuildContext context) {
@@ -154,24 +317,36 @@ class _PackageAddPageState extends State<PackageAddPage> {
                     }).toList(),
                   ),
                 ),
-                const Center(
-                    child: Padding(
-                  padding: EdgeInsets.all(8.0),
-                  child: Text("Select Class"),
-                )),
-                Center(
-                  child: DropdownMenu<String>(
-                    initialSelection: classes.first,
-                    onSelected: (value) {
-                      setState(() {
-                        selectedClass = value!;
-                        print(value);
-                      });
-                    },
-                    dropdownMenuEntries:
-                        classes.map<DropdownMenuEntry<String>>((String value) {
-                      return DropdownMenuEntry(value: value, label: value);
-                    }).toList(),
+                Visibility(
+                  visible: false,
+                  maintainSize: false,
+                  child: const Center(
+                  
+                      child: Padding(
+                    padding: EdgeInsets.all(8.0),
+                    child: Text("Select Class"),
+                  )),
+                ),
+                Visibility(
+                  visible: false,
+                  maintainSize: false,
+                  child: Center(
+                  
+                    child: DropdownMenu<String>(
+                      initialSelection: classes.first,
+                      enabled: false,
+                  
+                      onSelected: (value) {
+                        setState(() {
+                          selectedClass = value!;
+                          print(value);
+                        });
+                      },
+                      dropdownMenuEntries:
+                          classes.map<DropdownMenuEntry<String>>((String value) {
+                        return DropdownMenuEntry(value: value, label: value);
+                      }).toList(),
+                    ),
                   ),
                 ),
                 customTextField(
